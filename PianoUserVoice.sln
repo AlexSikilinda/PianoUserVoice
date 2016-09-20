@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PianoUserVoice", "PianoUserVoice\PianoUserVoice.csproj", "{98BB5BE4-B77D-4DBE-97EA-7A72B99D9BBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PianoUserVoice.Core", "PianoUserVoice.Core\PianoUserVoice.Core.csproj", "{80E4C439-3937-4666-BBEA-8B7BC5257E09}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PianoUserVoice.Database", "PianoUserVoice.Database\PianoUserVoice.Database.sqlproj", "{193621D3-A666-44FE-B208-76BF1743DD50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{80E4C439-3937-4666-BBEA-8B7BC5257E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80E4C439-3937-4666-BBEA-8B7BC5257E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80E4C439-3937-4666-BBEA-8B7BC5257E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193621D3-A666-44FE-B208-76BF1743DD50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193621D3-A666-44FE-B208-76BF1743DD50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193621D3-A666-44FE-B208-76BF1743DD50}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{193621D3-A666-44FE-B208-76BF1743DD50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193621D3-A666-44FE-B208-76BF1743DD50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193621D3-A666-44FE-B208-76BF1743DD50}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
