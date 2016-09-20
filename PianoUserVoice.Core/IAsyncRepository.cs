@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PianoUserVoice.Core
 {
-    public class Class1
+    public interface IAsyncRepository<T> : IRepository<T>
+        where T : class
     {
+        Task<T> GetByIdAsync(int id);
     }
 }
