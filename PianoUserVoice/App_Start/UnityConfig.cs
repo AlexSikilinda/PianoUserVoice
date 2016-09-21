@@ -4,6 +4,7 @@ using Microsoft.Practices.Unity.Configuration;
 using PianoUserVoice.Core.Songs.Models;
 using PianoUserVoice.Core.Songs;
 using PianoUserVoice.Core;
+using PianoUserVoice.Controllers;
 
 namespace PianoUserVoice.App_Start
 {
@@ -37,12 +38,15 @@ namespace PianoUserVoice.App_Start
         {
             // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
             // container.LoadConfiguration();
+            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
 
             // TODO: Register your types here
             container
-                .RegisterType<ISongsRepository, EntityFrameworkSongsRepository>("entity", new ContainerControlledLifetimeManager())
-                .RegisterType<ISongsRepository, AdoNetSongsRepository>("adonet", new ContainerControlledLifetimeManager())
-                .RegisterType<ISongsRepository, DapperSongsRepository>("dapper", new ContainerControlledLifetimeManager());
+                .RegisterType<ISongsRepository<SongDto>, EntityFrameworkSongsRepository>("entity", new ContainerControlledLifetimeManager())
+                .RegisterType<ISongsRepository<SongDto>, AdoNetSongsRepository>("adonet", new ContainerControlledLifetimeManager())
+                .RegisterType<ISongsRepository<SongDto>, DapperSongsRepository>("dapper", new ContainerControlledLifetimeManager());
+
         }
     }
 }

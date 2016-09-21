@@ -7,8 +7,9 @@ using PianoUserVoice.Core.Songs.Models;
 
 namespace PianoUserVoice.Core.Songs
 {
-    public class AdoNetSongsRepository : ISongsRepository
+    public class AdoNetSongsRepository : ISongsRepository<SongDto>
     {
+        #region CRUD
         public void Create(SongDto entity)
         {
             throw new NotImplementedException();
@@ -24,17 +25,23 @@ namespace PianoUserVoice.Core.Songs
             throw new NotImplementedException();
         }
 
+        public void Update(SongDto entity)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
         public IEnumerable<SongDto> Search(string title)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(SongDto entity)
+        public void Vote(int songId, string userId)
         {
             throw new NotImplementedException();
         }
 
-        public void Vote(int songId, string userId)
+        public IEnumerable<SongDto> GetAll()
         {
             throw new NotImplementedException();
         }

@@ -60,6 +60,7 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Functions" />
+    <Folder Include="Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="AspNetRoles.sql" />
@@ -72,5 +73,6 @@
     <Build Include="SongStatuses.sql" />
     <Build Include="SongVotes.sql" />
     <Build Include="Functions\GetSongVotes.sql" />
+    <Build Include="Views\SongsList.sql" />
   </ItemGroup>
 </Project>

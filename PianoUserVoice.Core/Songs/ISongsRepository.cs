@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace PianoUserVoice.Core.Songs
 {
-    public interface ISongsRepository : IRepository<SongDto>
+    public interface ISongsRepository<T> : IRepository<T>
+        where T : class
     {
         void Vote(int songId, string userId);
 
-        IEnumerable<SongDto> Search(string title);
+        IEnumerable<T> Search(string title);
+        IEnumerable<T> GetAll();
     }
 }

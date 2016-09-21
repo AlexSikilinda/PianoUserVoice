@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using PianoUserVoice.Core.Songs;
+using PianoUserVoice.Core.Songs.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,11 +9,13 @@ using System.Web.Mvc;
 
 namespace PianoUserVoice.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : PianoBaseController
     {
         public ActionResult Index()
         {
-            return View();
+            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>("dapper");
+            IEnumerable<SongDto> songs = songsRepo.GetAll();
+            return View(songs);
         }
 
         public ActionResult About()
