@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.Unity;
 using PianoUserVoice.Core.Songs;
 using PianoUserVoice.Core.Songs.Models;
+using StackExchange.Profiling;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,11 @@ namespace PianoUserVoice.Controllers
         public ActionResult Index()
         {
             ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>("dapper");
-            IEnumerable<SongDto> songs = songsRepo.GetAll();
+            IEnumerable<SongDto> songs = null;
+            using (Profiler.Step("DB. Get all songs"))
+            {
+                songs = songsRepo.GetAll();
+            }
             return View(songs);
         }
 

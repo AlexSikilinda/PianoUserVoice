@@ -43,7 +43,7 @@ namespace PianoUserVoice.App_Start
 
             // TODO: Register your types here
             container
-                .RegisterType<ISongsRepository<SongDto>, EntityFrameworkSongsRepository>("entity", new ContainerControlledLifetimeManager())
+                .RegisterType<ISongsRepository<SongDto>, EntityFrameworkSongsRepository>("ef", new ContainerControlledLifetimeManager())
                 .RegisterType<ISongsRepository<SongDto>, AdoNetSongsRepository>("adonet", new ContainerControlledLifetimeManager())
                 .RegisterType<ISongsRepository<SongDto>, DapperSongsRepository>("dapper", new ContainerControlledLifetimeManager());
 
