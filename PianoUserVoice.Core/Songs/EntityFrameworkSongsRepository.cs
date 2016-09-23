@@ -11,7 +11,7 @@ namespace PianoUserVoice.Core.Songs
 {
     public class EntityFrameworkSongsRepository : ISongsRepository<SongDto>
     {
-        private readonly Entities _db = new Entities();
+        private readonly PianoUserVoiceEntities _db = new PianoUserVoiceEntities();
         #region CRUD
         public void Create(SongDto entity)
         {

@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bdca31fb24c3474bb2ac9063ae99efb1" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Song" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.SongStatus" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Songs_To_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Songs_To_Statuses" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.SongVotes" ManuallyRouted="false" />
+      <Diagram DiagramId="702d0df145e24b61aa6da11076125823" Name="Diagram1">
+        <EntityTypeShape EntityType="PianoUserVoiceModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="PianoUserVoiceModel.AspNetRole" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PianoUserVoiceModel.AspNetUserClaim" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PianoUserVoiceModel.AspNetUserLogin" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PianoUserVoiceModel.AspNetUser" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PianoUserVoiceModel.Song" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PianoUserVoiceModel.SongStatus" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="PianoUserVoiceModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="PianoUserVoiceModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="PianoUserVoiceModel.FK_Songs_To_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PianoUserVoiceModel.FK_Songs_To_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="PianoUserVoiceModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="PianoUserVoiceModel.SongVotes" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

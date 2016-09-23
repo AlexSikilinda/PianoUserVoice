@@ -13,10 +13,10 @@ namespace PianoUserVoice.Core
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class PianoUserVoiceEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public PianoUserVoiceEntities()
+            : base("name=PianoUserVoiceEntities")
         {
         }
     
