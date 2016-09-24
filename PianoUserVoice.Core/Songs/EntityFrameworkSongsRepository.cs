@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PianoUserVoice.Core.Songs.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PianoUserVoice.Core.Songs
 {
     public class EntityFrameworkSongsRepository : ISongsRepository<SongDto>
     {
+        private readonly PianoUserVoiceEntities _db = new PianoUserVoiceEntities();
         #region CRUD
         public void Create(SongDto entity)
         {
@@ -35,7 +38,17 @@ namespace PianoUserVoice.Core.Songs
 
         public IEnumerable<SongDto> GetAll()
         {
-            throw new NotImplementedException();
+            return
+                _db.Songs
+                .Select(x => new SongDto
+                {
+                    Title = x.Title,
+                    Description = x.Description,
+                    Status = x.SongStatus.Title,
+                    Votes = 5
+                })
+                .OrderByDescending(x => x.Votes)
+                .AsEnumerable();
         }
 
 
