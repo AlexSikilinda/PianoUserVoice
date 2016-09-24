@@ -12,8 +12,9 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         @song.Title
+
                         <span class="label label-info pull-right">@song.Status</span>
-                    </h3>                    
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -21,15 +22,28 @@
                             <div class="well well-sm text-center">
                                 Votes
                                 <h4><strong>@song.Votes</strong></h4>
+
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div style="margin-bottom:10px">@song.Description</div>
+                            <div class="small" style="font-style: italic;">
+                                <div class="col-md-3">
+                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                                    @song.CreatedAt.ToShortDateString()
+                                </div>
+                                <div class="col-md-3">
+                                    @song.CommentsCount comment(s)
+                                </div>
+                                <!--<div class="col-md-4">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    @song.Author
+                                </div>-->
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-10">
-                        @song.Description
-                    </div>
                 </div>
-
             </div>
-        </div>
         }
     </div>
 </div>

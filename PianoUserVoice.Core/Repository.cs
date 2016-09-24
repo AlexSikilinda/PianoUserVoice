@@ -10,13 +10,7 @@ namespace PianoUserVoice.Core
     public abstract class Repository<T> : IRepository<T>
         where T : class
     {
-
-        public string ConnectionString { get; set; }
-
-        public Repository()
-        {
-            ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        }
+        public string ConnectionString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public void Create(T entity)
         {

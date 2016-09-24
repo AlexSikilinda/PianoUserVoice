@@ -18,7 +18,6 @@ namespace PianoUserVoice.Core.Songs
             throw new NotImplementedException();
         }
 
-
         public void Vote(int songId, string userId)
         {
             throw new NotImplementedException();

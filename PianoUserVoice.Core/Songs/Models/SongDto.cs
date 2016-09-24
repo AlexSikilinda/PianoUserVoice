@@ -18,8 +18,10 @@ namespace PianoUserVoice.Core.Songs.Models
 
         public string Author { get; set; }
 
-        public int Comments { get; set; }
-
         public string Status { get; set; }
+
+        public int CommentsCount { get; set; }
+
+        public DateTime CreatedAt { get; set; }
     }
 }
