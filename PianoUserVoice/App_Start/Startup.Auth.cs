@@ -58,11 +58,11 @@ namespace PianoUserVoice
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "785625530412-tlfmg4h8n9ualf83heg0f368g01jl2d8.apps.googleusercontent.com",
+                ClientSecret = "FtQW3qrX7j6RCpEnmq1g07hx"
+            });
         }
     }
 }
