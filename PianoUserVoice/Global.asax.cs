@@ -19,7 +19,7 @@ namespace PianoUserVoice
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            MiniProfilerEF.Initialize();
+            //MiniProfilerEF.Initialize();
 
             var copiedViewEngines = ViewEngines.Engines.ToList();
             ViewEngines.Engines.Clear();

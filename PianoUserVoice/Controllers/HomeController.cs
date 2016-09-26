@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace PianoUserVoice.Controllers
 {
@@ -14,13 +15,35 @@ namespace PianoUserVoice.Controllers
     {
         public ActionResult Index()
         {
-            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>("dapper");
+            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
             IEnumerable<SongDto> songs = null;
             using (Profiler.Step("DB. Get all songs"))
             {
                 songs = songsRepo.GetAll();
             }
             return View(songs);
+        }
+
+        public ActionResult Create()
+        {
+            var song = new SongDto()
+            {
+                AuthorId = User.Identity.GetUserId()
+            };
+            return View(song);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(SongDto song)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(song);
+            }
+            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
+            songsRepo.Create(song);
+            return RedirectToAction("Index");
         }
 
         public ActionResult About()

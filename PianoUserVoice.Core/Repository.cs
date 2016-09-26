@@ -12,22 +12,22 @@ namespace PianoUserVoice.Core
     {
         public string ConnectionString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        public void Create(T entity)
+        public virtual void Create(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             throw new NotImplementedException();
         }

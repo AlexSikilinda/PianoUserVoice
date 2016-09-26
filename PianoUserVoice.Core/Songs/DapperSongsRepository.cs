@@ -13,6 +13,23 @@ namespace PianoUserVoice.Core.Songs
     public class DapperSongsRepository : Repository<SongDto>, 
         ISongsRepository<SongDto>
     {
+        public override void Create(SongDto entity)
+        {
+            using(IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                db.Open();
+                db.Execute(@"insert [dbo].[Songs] ([Title], [Description], [UserId], [StatusId]) 
+                                values (@t, @d, @u, @s)",
+                        new {
+                            t = entity.Title,
+                            d = entity.Description,
+                            u = entity.AuthorId,
+                            s = 1 // TODO: Alex, please, remove this shit 
+                        }
+                    );
+            }
+        }
+
         public IEnumerable<SongDto> Search(string title)
         {
             throw new NotImplementedException();
