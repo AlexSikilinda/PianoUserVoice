@@ -45,7 +45,7 @@ namespace PianoUserVoice.Core.Songs
                     Title = x.Title,
                     Description = x.Description,
                     Status = x.SongStatus.Title,
-                    Votes = 5
+                    Votes = 5, // TODO: Alex, please, remove this shit (2)
                 })
                 .OrderByDescending(x => x.Votes)
                 .AsEnumerable();

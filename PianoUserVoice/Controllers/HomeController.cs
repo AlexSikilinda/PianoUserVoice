@@ -24,19 +24,18 @@ namespace PianoUserVoice.Controllers
             return View(songs);
         }
 
+        [Authorize]
         public ActionResult Create()
         {
-            var song = new SongDto()
-            {
-                AuthorId = User.Identity.GetUserId()
-            };
-            return View(song);
+            return View(new SongDto());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(SongDto song)
         {
+            song.AuthorId = User.Identity.GetUserId();
             if (!ModelState.IsValid)
             {
                 return View(song);
@@ -46,6 +45,16 @@ namespace PianoUserVoice.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [Authorize]
+        public ActionResult Vote(int songId)
+        {
+            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
+            songsRepo.Vote(songId, User.Identity.GetUserId());
+            return View();
+        }
+
+        #region Info pages
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -59,5 +68,6 @@ namespace PianoUserVoice.Controllers
 
             return View();
         }
+        #endregion
     }
 }

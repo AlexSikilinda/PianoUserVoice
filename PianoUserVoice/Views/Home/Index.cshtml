@@ -15,7 +15,6 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         @song.Title
-
                         <span class="label label-info pull-right">@song.Status</span>
                     </h3>
                 </div>
@@ -25,7 +24,11 @@
                             <div class="well well-sm text-center">
                                 Votes
                                 <h4><strong>@song.Votes</strong></h4>
-
+                                @using (Html.BeginForm("Vote", "Home", FormMethod.Post))
+                                {
+                                    <input type="hidden" name="songId"  value="@song.Id" />
+                                    <input type="submit" value="Vote" class="btn btn-default" />
+                                }
                             </div>
                         </div>
                         <div class="col-md-10">

@@ -1,6 +1,7 @@
 ﻿create view SongsList
 as
 select top 100
+	s.[Id],
 	s.[Title],
 	[Description],
 	[UserName] as Author,
