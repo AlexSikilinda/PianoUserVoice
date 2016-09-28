@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PianoUserVoice.Core.Songs.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace PianoUserVoice.Core.Songs
 {
@@ -36,7 +34,7 @@ namespace PianoUserVoice.Core.Songs
         }
 #endregion
 
-        public IEnumerable<SongDto> GetAll()
+        public IEnumerable<SongDto> GetAll(string userId)
         {
             return
                 _db.Songs

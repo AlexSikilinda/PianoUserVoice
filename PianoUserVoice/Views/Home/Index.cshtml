@@ -24,10 +24,17 @@
                             <div class="well well-sm text-center">
                                 Votes
                                 <h4><strong>@song.Votes</strong></h4>
-                                @using (Html.BeginForm("Vote", "Home", FormMethod.Post))
+                                @if (song.CanVote)
                                 {
-                                    <input type="hidden" name="songId"  value="@song.Id" />
-                                    <input type="submit" value="Vote" class="btn btn-default" />
+                                    using (Html.BeginForm("Vote", "Home", FormMethod.Post))
+                                    {
+                                        <input type="hidden" name="songId" value="@song.Id" />
+                                        <input type="submit" value="Vote" class="btn btn-default" />
+                                    }
+                                }
+                                else
+                                {
+                                    <span>Thank you for your vote.</span>
                                 }
                             </div>
                         </div>

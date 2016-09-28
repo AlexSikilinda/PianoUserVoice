@@ -1,4 +1,5 @@
-﻿create view SongsList
+﻿create procedure SongsList
+	@currentUserId nvarchar(128)
 as
 select top 100
 	s.[Id],
@@ -8,13 +9,14 @@ select top 100
 	s.CreatedAt,
 	(select count(1) from [dbo].[SongVotes] where [SongId] = s.[Id]) as [Votes],
 	ss.Title as [Status],
-	(select count(1) from [dbo].[Comments] where [SongId] = s.[Id]) as [CommentsCount]
+	(select count(1) from [dbo].[Comments] where [SongId] = s.[Id]) as [CommentsCount],
+	CASE
+		WHEN s.[Id] in (select SongId from SongVotes sv where sv.UserId = @currentUserId) THEN 0
+		ELSE 1
+	END AS CanVote
 from 
 	[dbo].[Songs] as s
 	inner join [dbo].[SongStatuses] as ss on s.StatusId = ss.Id
 	inner join [dbo].[AspNetUsers] as anu on s.UserId = anu.Id
 order by
 	[Votes] desc
-
-
-	

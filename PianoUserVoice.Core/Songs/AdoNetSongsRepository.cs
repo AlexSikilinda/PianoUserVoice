@@ -41,7 +41,7 @@ namespace PianoUserVoice.Core.Songs
             throw new NotImplementedException();
         }
 
-        public IEnumerable<SongDto> GetAll()
+        public IEnumerable<SongDto> GetAll(string userId)
         {
             throw new NotImplementedException();
         }

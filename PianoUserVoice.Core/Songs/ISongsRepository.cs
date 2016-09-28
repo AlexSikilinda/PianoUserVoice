@@ -13,6 +13,7 @@ namespace PianoUserVoice.Core.Songs
         void Vote(int songId, string userId);
 
         IEnumerable<T> Search(string title);
-        IEnumerable<T> GetAll();
+
+        IEnumerable<T> GetAll(string userId);
     }
 }

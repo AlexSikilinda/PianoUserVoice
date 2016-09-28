@@ -18,7 +18,7 @@ namespace PianoUserVoice.Core.Songs
             using(IDbConnection db = new SqlConnection(ConnectionString))
             {
                 db.Open();
-                db.Execute(@"insert [dbo].[Songs] ([Title], [Description], [UserId], [StatusId]) 
+                db.Execute(@"insert [dbo].[Songs] ([Title], [Description], [UserId], [StatusId])
                                 values (@t, @d, @u, @s)",
                         new {
                             t = entity.Title,
@@ -50,12 +50,12 @@ namespace PianoUserVoice.Core.Songs
             }
         }
 
-        public IEnumerable<SongDto> GetAll()
+        public IEnumerable<SongDto> GetAll(string userId)
         {
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 db.Open();
-                return db.Query<SongDto>("select * from [dbo].[SongsList]");
+                return db.Query<SongDto>("exec [dbo].[SongsList] @UserId", new { UserId = userId });
             }
         }
     }

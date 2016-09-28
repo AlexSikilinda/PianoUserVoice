@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using PianoUserVoice.Core;
 
 namespace PianoUserVoice.Controllers
 {
@@ -19,7 +20,7 @@ namespace PianoUserVoice.Controllers
             IEnumerable<SongDto> songs = null;
             using (Profiler.Step("DB. Get all songs"))
             {
-                songs = songsRepo.GetAll();
+                songs = songsRepo.GetAll(Current.UserId);
             }
             return View(songs);
         }
@@ -35,7 +36,7 @@ namespace PianoUserVoice.Controllers
         [Authorize]
         public ActionResult Create(SongDto song)
         {
-            song.AuthorId = User.Identity.GetUserId();
+            song.AuthorId = Current.UserId;
             if (!ModelState.IsValid)
             {
                 return View(song);
