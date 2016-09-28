@@ -4,11 +4,14 @@
 }
 
 <div class="row">
-    <p></p>
-    <p>
-        <a href="@Url.Action("Create", "Home")">Add a new song</a>
-    </p>
-    <div class="col-md-8">
+
+    <div style="margin:30px;">
+        <div class="well col-md-4 col-md-offset-4">
+            <div class="text-center lead">Cannot find your song here?</div>
+            <a href="@Url.Action("Create", "Home")" class="btn btn-primary btn-block">Add a new song</a>
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
         @foreach (var song in Model)
         {
             <div class="panel panel-default">
