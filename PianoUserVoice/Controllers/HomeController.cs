@@ -18,7 +18,7 @@ namespace PianoUserVoice.Controllers
         {
             ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
             IEnumerable<SongDto> songs = null;
-            using (Profiler.Step("DB. Get all songs"))
+            using (Profiler.Step("Get all songs by " + DefaultRepository))
             {
                 songs = songsRepo.GetAll(Current.UserId);
             }
