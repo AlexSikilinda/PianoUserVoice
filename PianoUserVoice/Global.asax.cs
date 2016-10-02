@@ -7,6 +7,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using StackExchange.Profiling;
 using StackExchange.Profiling.Mvc;
+using StackExchange.Profiling.SqlFormatters;
+using StackExchange.Profiling.EntityFramework6;
 
 namespace PianoUserVoice
 {
@@ -14,12 +16,11 @@ namespace PianoUserVoice
     {
         protected void Application_Start()
         {
+            
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            //MiniProfilerEF.Initialize();
+            BundleConfig.RegisterBundles(BundleTable.Bundles);            
 
             var copiedViewEngines = ViewEngines.Engines.ToList();
             ViewEngines.Engines.Clear();
@@ -27,6 +28,7 @@ namespace PianoUserVoice
             {
                 ViewEngines.Engines.Add(new ProfilingViewEngine(ve));
             }
+            MiniProfilerEF6.Initialize();
         }
 
 
