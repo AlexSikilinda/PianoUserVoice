@@ -55,7 +55,15 @@ namespace PianoUserVoice.Controllers
             return View();
         }
 
-        #region Info pages
+        [HttpPost]
+        [Authorize]
+        public ActionResult Details(int songId)
+        {
+            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
+            DetailDto songDetail = songsRepo.Details(songId, User.Identity.GetUserId());
+            return View(songDetail);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -69,6 +77,5 @@ namespace PianoUserVoice.Controllers
 
             return View();
         }
-        #endregion
     }
 }

@@ -60,7 +60,6 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Functions" />
-    <Folder Include="Views" />
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
@@ -74,8 +73,10 @@
     <Build Include="SongStatuses.sql" />
     <Build Include="SongVotes.sql" />
     <Build Include="Functions\GetSongVotes.sql" />
-    <Build Include="Views\SongsList.sql" />
     <Build Include="Comments.sql" />
+    <Build Include="Functions\SongsList.sql" />
+    <Build Include="Functions\GetComments.sql" />
+    <Build Include="Functions\GetDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Script.PostDeployment.sql" />

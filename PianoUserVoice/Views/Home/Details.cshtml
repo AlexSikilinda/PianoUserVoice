@@ -1,0 +1,15 @@
+﻿@model PianoUserVoice.Core.Songs.Models.DetailDto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+@{ Html.RenderPartial("_Song", Model.SongDto); }
+
+<ol>
+    @foreach (var comment in Model.Comments)
+    {
+        <li>@comment.Text</li>
+    }
+</ol>
