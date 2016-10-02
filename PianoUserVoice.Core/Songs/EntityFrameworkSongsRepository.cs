@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using PianoUserVoice.Core.Songs.Models;
 using System.Data.SqlClient;
+using StackExchange.Profiling.Data;
+using StackExchange.Profiling;
 
 namespace PianoUserVoice.Core.Songs
 {
     public class EntityFrameworkSongsRepository : Repository<SongDto>,
         ISongsRepository<SongDto>
     {
+
         public IEnumerable<SongDto> GetAll(string userId)
         {
             using (PianoUserVoiceEntities context = new PianoUserVoiceEntities())
