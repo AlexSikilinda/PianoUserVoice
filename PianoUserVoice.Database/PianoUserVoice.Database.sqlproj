@@ -76,6 +76,9 @@
     <Build Include="Functions\GetSongVotes.sql" />
     <Build Include="Views\SongsList.sql" />
     <Build Include="Comments.sql" />
+    <Build Include="MiniProfilers.sql" />
+    <Build Include="MiniProfilerTimings.sql" />
+    <Build Include="MiniProfilerClientTimings.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Script.PostDeployment.sql" />
