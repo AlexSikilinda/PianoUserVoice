@@ -37,5 +37,10 @@ namespace PianoUserVoice.Core.Songs
         {
             throw new NotImplementedException();
         }
+
+        public void AddComment(string text, int songId, string userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

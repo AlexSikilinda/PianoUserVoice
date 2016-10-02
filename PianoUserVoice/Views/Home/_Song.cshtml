@@ -3,7 +3,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
-            @Html.ActionLink(Model.Title, "Details", "Home", new { songId = Model.Id }, null)
+            @Html.ActionLink(Model.Title, "Details", "Home", new { id = Model.Id }, null)
             <span class="label label-info pull-right">@Model.Status</span>
         </h3>
     </div>
@@ -17,7 +17,7 @@
                     {
                         using (Html.BeginForm("Vote", "Home", FormMethod.Post))
                         {
-                            <input type="hidden" name="ModelId" value="@Model.Id" />
+                            <input type="hidden" name="songId" value="@Model.Id" />
                                         <input type="submit" value="Vote" class="btn btn-default" />
                         }
                     }

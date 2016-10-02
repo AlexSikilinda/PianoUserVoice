@@ -40,16 +40,16 @@ namespace PianoUserVoice
             MiniProfiler.Stop();
         }
 
-        protected void Application_Error(object sender, EventArgs e)
-        {
-            Exception exception = Server.GetLastError();
-            Server.ClearError();
-            if (HttpContext.Current.Session != null)
-            {
-                HttpContext.Current.Session["ErrorMessage"] = exception.Message;
-                HttpContext.Current.Session["ErrorStackTrace"] = exception.StackTrace;
-            }
-            Response.Redirect("/Error");
-        }
+        //protected void Application_Error(object sender, EventArgs e)
+        //{
+        //    Exception exception = Server.GetLastError();
+        //    Server.ClearError();
+        //    if (HttpContext.Current.Session != null)
+        //    {
+        //        HttpContext.Current.Session["ErrorMessage"] = exception.Message;
+        //        HttpContext.Current.Session["ErrorStackTrace"] = exception.StackTrace;
+        //    }
+        //    Response.Redirect("/Error");
+        //}
     }
 }

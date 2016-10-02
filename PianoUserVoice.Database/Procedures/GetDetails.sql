@@ -41,5 +41,6 @@ BEGIN
 	FROM Comments c
 	JOIN AspNetUsers anu
 		ON c.UserId = anu.Id
+	WHERE c.SongId = @songId
 	ORDER BY c.CreatedAt;
 END

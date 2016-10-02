@@ -7,9 +7,22 @@
 
 @{ Html.RenderPartial("_Song", Model.SongDto); }
 
-<ol>
     @foreach (var comment in Model.Comments)
     {
-        <li>@comment.Text</li>
+        <div class="panel panel-default">
+            <div class="panel-heading">@comment.UserName</div>
+            <div class="panel-body">
+                @comment.Text
+            </div>
+        </div>
     }
-</ol>
+
+@using (Html.BeginForm("AddComment", "Home", FormMethod.Post))
+{
+    <input type="hidden" value="@Model.SongDto.Id" name="songId"/>
+    <div class="form-group">
+        <label for="comment">Add Comment:</label>
+        <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+    </div>
+    <input type="submit" class="btn btn-info" value="Add comment">
+}

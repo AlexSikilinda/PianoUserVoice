@@ -55,13 +55,21 @@ namespace PianoUserVoice.Controllers
             return View();
         }
 
-        [HttpPost]
         [Authorize]
-        public ActionResult Details(int songId)
+        public ActionResult Details(int id)
         {
             ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
-            DetailDto songDetail = songsRepo.Details(songId, User.Identity.GetUserId());
+            DetailDto songDetail = songsRepo.Details(id, User.Identity.GetUserId());
             return View(songDetail);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddComment(string text, int songId)
+        {
+            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
+            songsRepo.AddComment(text, songId, User.Identity.GetUserId());
+            return RedirectToAction("Details", new { id = songId });
         }
 
         public ActionResult About()
