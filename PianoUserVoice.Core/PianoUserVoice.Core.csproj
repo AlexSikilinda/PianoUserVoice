@@ -80,47 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUser.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="AspNetRole.cs" />
     <Compile Include="Current.cs" />
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IAsyncRepository.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="PianoUserVoiceEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PUVModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PUVModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PUVModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PUVModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PUVModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Repository.cs" />
-    <Compile Include="Song.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SongStatus.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Songs\AdoNetSongsRepository.cs" />
     <Compile Include="Songs\DapperSongsRepository.cs" />
     <Compile Include="Songs\Models\CommentDto.cs" />
@@ -137,13 +102,6 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="PUVModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PUVModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="PUVModel.edmx.diagram">
-      <DependentUpon>PUVModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -159,18 +117,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PUVModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PUVModel.edmx</DependentUpon>
-      <LastGenOutput>PUVModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PUVModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PUVModel.edmx</DependentUpon>
-      <LastGenOutput>PUVModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

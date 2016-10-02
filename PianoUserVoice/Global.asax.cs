@@ -44,8 +44,11 @@ namespace PianoUserVoice
         {
             Exception exception = Server.GetLastError();
             Server.ClearError();
-            HttpContext.Current.Session["ErrorMessage"] = exception.Message;
-            HttpContext.Current.Session["ErrorStackTrace"] = exception.StackTrace;            
+            if (HttpContext.Current.Session != null)
+            {
+                HttpContext.Current.Session["ErrorMessage"] = exception.Message;
+                HttpContext.Current.Session["ErrorStackTrace"] = exception.StackTrace;
+            }
             Response.Redirect("/Error");
         }
     }
