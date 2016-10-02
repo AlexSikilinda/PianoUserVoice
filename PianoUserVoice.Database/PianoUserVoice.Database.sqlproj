@@ -78,9 +78,6 @@
     <Build Include="Comments.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PianoUserVoice.Database.publish.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Scripts\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
