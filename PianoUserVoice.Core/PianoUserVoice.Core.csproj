@@ -61,6 +61,10 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MiniProfiler, Version=3.2.0.157, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.3.2.0.157\lib\net40\MiniProfiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -119,6 +123,7 @@
     </Compile>
     <Compile Include="Songs\AdoNetSongsRepository.cs" />
     <Compile Include="Songs\DapperSongsRepository.cs" />
+    <Compile Include="Songs\Models\DetailDto.cs" />
     <Compile Include="Songs\EntityFrameworkSongsRepository.cs" />
     <Compile Include="Songs\ISongsRepository.cs" />
     <Compile Include="Songs\Models\SongDto.cs" />
