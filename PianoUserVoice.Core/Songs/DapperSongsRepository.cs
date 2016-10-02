@@ -61,12 +61,29 @@ namespace PianoUserVoice.Core.Songs
             }
         }
 
-        public DetailDto Details(string userId, int songId)
+        public DetailDto Details(int songId, string userId)
         {
             using (IDbConnection db = CreateProfiledConnection())
             {
                 db.Open();
-                return new DetailDto();
+                using (var multi = db.QueryMultiple("exec [dbo].[GetDetails] @songId, @userId", 
+                    new { userId, songId }))
+                {
+                    return new DetailDto
+                    {
+                        SongDto = multi.ReadSingle<SongDto>(),
+                        Comments = multi.Read<CommentDto>()
+                    };
+                }
+            }
+        }
+
+        public void AddComment(string text, int songId, string userId)
+        {
+            using (IDbConnection db = CreateProfiledConnection())
+            {
+                db.Open();
+                db.Execute("exec [dbo].[AddComment] @text, @songId, @userId", new { text, songId, userId });
             }
         }
     }

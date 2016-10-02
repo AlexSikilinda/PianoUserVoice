@@ -15,5 +15,9 @@ namespace PianoUserVoice.Core.Songs
         IEnumerable<T> Search(string title);
 
         IEnumerable<T> GetAll(string userId);
+
+        DetailDto Details(int songId, string userId);
+
+        void AddComment(string text, int songId, string userId);
     }
 }

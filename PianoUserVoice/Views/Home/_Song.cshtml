@@ -1,0 +1,48 @@
+﻿@model PianoUserVoice.Core.Songs.Models.SongDto
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            @Html.ActionLink(Model.Title, "Details", "Home", new { id = Model.Id }, null)
+            <span class="label label-info pull-right">@Model.Status</span>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="well well-sm text-center">
+                    Votes
+                    <h4><strong>@Model.Votes</strong></h4>
+                    @if (Model.CanVote)
+                    {
+                        using (Html.BeginForm("Vote", "Home", FormMethod.Post))
+                        {
+                            <input type="hidden" name="songId" value="@Model.Id" />
+                                        <input type="submit" value="Vote" class="btn btn-default" />
+                        }
+                    }
+                    else
+                    {
+                        <span>Thank you for your vote.</span>
+                    }
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div style="margin-bottom:10px">@Model.Description</div>
+                <div class="small" style="font-style: italic;">
+                    <div class="col-md-3">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        @Model.CreatedAt.ToShortDateString()
+                    </div>
+                    <div class="col-md-3">
+                        @Model.CommentsCount comment(s)
+                    </div>
+                    <!--<div class="col-md-4">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        @Model.Author
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

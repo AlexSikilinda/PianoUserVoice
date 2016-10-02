@@ -59,8 +59,7 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Functions" />
-    <Folder Include="Views" />
+    <Folder Include="Procedures" />
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
@@ -73,9 +72,12 @@
     <Build Include="Songs.sql" />
     <Build Include="SongStatuses.sql" />
     <Build Include="SongVotes.sql" />
-    <Build Include="Functions\GetSongVotes.sql" />
-    <Build Include="Views\SongsList.sql" />
+    <Build Include="Procedures\GetSongVotes.sql" />
     <Build Include="Comments.sql" />
+    <Build Include="Procedures\SongsList.sql" />
+    <Build Include="Procedures\GetComments.sql" />
+    <Build Include="Procedures\GetDetails.sql" />
+    <Build Include="Procedures\AddComment.sql" />
     <Build Include="MiniProfilers.sql" />
     <Build Include="MiniProfilerTimings.sql" />
     <Build Include="MiniProfilerClientTimings.sql" />

@@ -53,5 +53,15 @@ namespace PianoUserVoice.Core.Songs
                 return songs;
             }
         }
+
+        public DetailDto Details(int songId, string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddComment(string text, int songId, string userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

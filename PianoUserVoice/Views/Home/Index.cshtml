@@ -14,52 +14,7 @@
     <div class="col-md-8 col-md-offset-2">
         @foreach (var song in Model)
         {
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        @song.Title
-                        <span class="label label-info pull-right">@song.Status</span>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="well well-sm text-center">
-                                Votes
-                                <h4><strong>@song.Votes</strong></h4>
-                                @if (song.CanVote)
-                                {
-                                    using (Html.BeginForm("Vote", "Home", FormMethod.Post))
-                                    {
-                                        <input type="hidden" name="songId" value="@song.Id" />
-                                        <input type="submit" value="Vote" class="btn btn-default" />
-                                    }
-                                }
-                                else
-                                {
-                                    <span>Thank you for your vote.</span>
-                                }
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div style="margin-bottom:10px">@song.Description</div>
-                            <div class="small" style="font-style: italic;">
-                                <div class="col-md-3">
-                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                    @song.CreatedAt.ToShortDateString()
-                                </div>
-                                <div class="col-md-3">
-                                    @song.CommentsCount comment(s)
-                                </div>
-                                <!--<div class="col-md-4">
-                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                    @song.Author
-                                </div>-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            Html.RenderPartial("_Song", song);
         }
     </div>
 </div>

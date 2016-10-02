@@ -92,6 +92,7 @@
     <Compile Include="Repository.cs" />
     <Compile Include="Songs\AdoNetSongsRepository.cs" />
     <Compile Include="Songs\DapperSongsRepository.cs" />
+    <Compile Include="Songs\Models\CommentDto.cs" />
     <Compile Include="Songs\Models\DetailDto.cs" />
     <Compile Include="Songs\EntityFrameworkSongsRepository.cs" />
     <Compile Include="Songs\ISongsRepository.cs" />
