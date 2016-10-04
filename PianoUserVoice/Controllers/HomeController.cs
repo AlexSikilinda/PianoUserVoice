@@ -18,7 +18,7 @@ namespace PianoUserVoice.Controllers
         {
             ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
             IEnumerable<SongDto> songs = null;
-            using (Profiler.Step("DB. Get all songs"))
+            using (Profiler.Step("Get all songs by " + DefaultRepository))
             {
                 songs = songsRepo.GetAll(Current.UserId);
             }
@@ -55,7 +55,23 @@ namespace PianoUserVoice.Controllers
             return View();
         }
 
-        #region Info pages
+        [Authorize]
+        public ActionResult Details(int id)
+        {
+            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
+            DetailDto songDetail = songsRepo.Details(id, User.Identity.GetUserId());
+            return View(songDetail);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddComment(string text, int songId)
+        {
+            ISongsRepository<SongDto> songsRepo = Container.Resolve<ISongsRepository<SongDto>>(DefaultRepository);
+            songsRepo.AddComment(text, songId, User.Identity.GetUserId());
+            return RedirectToAction("Details", new { id = songId });
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -69,6 +85,5 @@ namespace PianoUserVoice.Controllers
 
             return View();
         }
-        #endregion
     }
 }

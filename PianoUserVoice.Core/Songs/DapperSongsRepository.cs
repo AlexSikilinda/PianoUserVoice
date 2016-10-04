@@ -10,23 +10,25 @@ using Dapper;
 
 namespace PianoUserVoice.Core.Songs
 {
-    public class DapperSongsRepository : Repository<SongDto>, 
+    public class DapperSongsRepository : Repository<SongDto>,
         ISongsRepository<SongDto>
     {
         public override void Create(SongDto entity)
         {
-            using(IDbConnection db = new SqlConnection(ConnectionString))
+            using (IDbConnection db = CreateProfiledConnection())
             {
                 db.Open();
-                db.Execute(@"insert [dbo].[Songs] ([Title], [Description], [UserId], [StatusId])
-                                values (@t, @d, @u, @s)",
-                        new {
-                            t = entity.Title,
-                            d = entity.Description,
-                            u = entity.AuthorId,
-                            s = 1 // TODO: Alex, please, remove this shit 
-                        }
-                    );
+                db.Execute(
+@"insert [dbo].[Songs] ([Title], [Description], [UserId], [StatusId])
+  values (@Tilte, @Description, @UserId, @StatusId)",
+                    new
+                    {
+                        Tilte = entity.Title,
+                        Description = entity.Description,
+                        UserId = entity.AuthorId,
+                        StatusId = 1 // TODO: Alex, please, remove this shit 
+                    }
+                );
             }
         }
 
@@ -37,7 +39,7 @@ namespace PianoUserVoice.Core.Songs
 
         public void Vote(int songId, string userId)
         {
-            using (IDbConnection db = new SqlConnection(ConnectionString))
+            using (IDbConnection db = CreateProfiledConnection())
             {
                 bool hasVoted = db.ExecuteScalar<int>(@"select count(1) from [dbo].[SongVotes] 
                     where SongId = @sid and UserId = @uid",
@@ -52,10 +54,36 @@ namespace PianoUserVoice.Core.Songs
 
         public IEnumerable<SongDto> GetAll(string userId)
         {
-            using (IDbConnection db = new SqlConnection(ConnectionString))
+            using (IDbConnection db = CreateProfiledConnection())
             {
                 db.Open();
                 return db.Query<SongDto>("exec [dbo].[SongsList] @UserId", new { UserId = userId });
+            }
+        }
+
+        public DetailDto Details(int songId, string userId)
+        {
+            using (IDbConnection db = CreateProfiledConnection())
+            {
+                db.Open();
+                using (var multi = db.QueryMultiple("exec [dbo].[GetDetails] @songId, @userId", 
+                    new { userId, songId }))
+                {
+                    return new DetailDto
+                    {
+                        SongDto = multi.ReadSingle<SongDto>(),
+                        Comments = multi.Read<CommentDto>()
+                    };
+                }
+            }
+        }
+
+        public void AddComment(string text, int songId, string userId)
+        {
+            using (IDbConnection db = CreateProfiledConnection())
+            {
+                db.Open();
+                db.Execute("exec [dbo].[AddComment] @text, @songId, @userId", new { text, songId, userId });
             }
         }
     }

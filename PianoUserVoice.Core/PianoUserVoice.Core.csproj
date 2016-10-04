@@ -61,6 +61,14 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MiniProfiler, Version=3.2.0.157, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.3.2.0.157\lib\net40\MiniProfiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MiniProfiler.EntityFramework6, Version=3.0.11.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.EF6.3.0.11\lib\net40\MiniProfiler.EntityFramework6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -76,49 +84,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUser.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="AspNetRole.cs" />
     <Compile Include="Current.cs" />
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IAsyncRepository.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="PianoUserVoiceEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PUVModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PUVModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PUVModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PUVModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PUVModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Repository.cs" />
-    <Compile Include="Song.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SongStatus.cs">
-      <DependentUpon>PUVModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Songs\AdoNetSongsRepository.cs" />
     <Compile Include="Songs\DapperSongsRepository.cs" />
+    <Compile Include="Songs\Models\CommentDto.cs" />
+    <Compile Include="Songs\Models\DetailDto.cs" />
     <Compile Include="Songs\EntityFrameworkSongsRepository.cs" />
     <Compile Include="Songs\ISongsRepository.cs" />
     <Compile Include="Songs\Models\SongDto.cs" />
@@ -130,13 +105,6 @@
     <None Include="App.Config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
-    </None>
-    <EntityDeploy Include="PUVModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PUVModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="PUVModel.edmx.diagram">
-      <DependentUpon>PUVModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -153,18 +121,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PUVModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PUVModel.edmx</DependentUpon>
-      <LastGenOutput>PUVModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PUVModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PUVModel.edmx</DependentUpon>
-      <LastGenOutput>PUVModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
