@@ -76,6 +76,7 @@
     <Build Include="Functions\GetSongVotes.sql" />
     <Build Include="Views\SongsList.sql" />
     <Build Include="Comments.sql" />
+    <Build Include="Exceptions.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PianoUserVoice.Database.publish.xml" />
