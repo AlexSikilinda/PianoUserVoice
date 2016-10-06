@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Core. Profiled connection</Title>      
+      <Shortcut>puvconnstr</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[ using (IDbConnection db = CreateProfiledConnection())
+        {
+          $end$
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Dapper. Get all songs</Title>
+      <Shortcut>puvdappergetallsongs</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[return db.Query<SongDto>("exec [dbo].[SongsList] @UserId", new { UserId = userId });]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

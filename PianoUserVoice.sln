@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PianoUserVoice.Core", "Pian
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PianoUserVoice.Database", "PianoUserVoice.Database\PianoUserVoice.Database.sqlproj", "{193621D3-A666-44FE-B208-76BF1743DD50}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Snippets", "Snippets", "{71B462B3-90EC-49AE-AD5B-087AB6633CAE}"
+	ProjectSection(SolutionItems) = preProject
+		core.snippet = core.snippet
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
