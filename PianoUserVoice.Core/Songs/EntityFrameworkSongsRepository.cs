@@ -16,20 +16,13 @@ namespace PianoUserVoice.Core.Songs
 
         public IEnumerable<SongDto> GetAll(string userId)
         {
-            using (PianoUserVoiceEntities context = new PianoUserVoiceEntities())
-            {
-                return context.Database.SqlQuery<SongDto>("exec [dbo].[SongsList] @UserId",
-                    new SqlParameter("@UserId", userId)
-                    ).ToList();
-            }
+            throw new NotImplementedException();
         }
-
 
         public IEnumerable<SongDto> Search(string title)
         {
             throw new NotImplementedException();
         }
-
 
         public void Vote(int songId, string userId)
         {

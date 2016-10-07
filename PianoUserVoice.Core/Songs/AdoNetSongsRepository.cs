@@ -26,38 +26,7 @@ namespace PianoUserVoice.Core.Songs
 
         public IEnumerable<SongDto> GetAll(string userId)
         {
-            using (IDbConnection conn = CreateProfiledConnection())
-            using (IDbCommand dbCommand = conn.CreateCommand())
-            {
-                dbCommand.CommandText = "exec [dbo].[SongsList] @UserId";
-                dbCommand.Parameters.Add(new SqlParameter("@UserId", userId));
-                conn.Open();
-                using (var reader = dbCommand.ExecuteReader())
-                {
-                    List<SongDto> songs = new List<SongDto>();
-                    while (reader.Read())
-                    {
-                        var dto = BuildSongDto(reader);
-                        songs.Add(dto);
-                    }
-                    return songs;
-                }
-            }
-        }
-
-        private static SongDto BuildSongDto(IDataReader reader)
-        {
-            SongDto song = new SongDto();
-            song.Id = reader.GetInt32(0);
-            song.Title = reader.GetString(1);
-            song.Description = reader.GetString(2);
-            song.Author = reader.GetString(3);
-            song.CreatedAt = reader.GetDateTime(4);
-            song.Votes = reader.GetInt32(5);
-            song.Status = reader.GetString(6);
-            song.CommentsCount = reader.GetInt32(7);
-            song.CanVote = reader.GetBoolean(8);
-            return song;
+            throw new NotImplementedException();
         }
 
         public DetailDto Details(int songId, string userId)

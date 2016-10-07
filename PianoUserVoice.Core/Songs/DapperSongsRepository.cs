@@ -54,11 +54,7 @@ namespace PianoUserVoice.Core.Songs
 
         public IEnumerable<SongDto> GetAll(string userId)
         {
-            using (IDbConnection db = CreateProfiledConnection())
-            {
-                db.Open();
-                return db.Query<SongDto>("exec [dbo].[SongsList] @UserId", new { UserId = userId });
-            }
+            throw new NotImplementedException();
         }
 
         public DetailDto Details(int songId, string userId)
