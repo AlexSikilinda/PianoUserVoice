@@ -34,7 +34,7 @@ namespace PianoUserVoice
             // MiniProfiler for EF 6+
             MiniProfilerEF6.Initialize();
             // MiniProfiler Authorization restrictions
-            MiniProfiler.Settings.Results_List_Authorize = IsUserAllowedToSeeMiniProfilerUI;
+            MiniProfiler.Settings.Results_List_Authorize = context => true;
             // MiniProfiler custom storage
             MiniProfiler.Settings.Storage = new SqlServerStorage(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }

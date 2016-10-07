@@ -26,4 +26,89 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AdoNet. Get all songs. Setup db command</Title>
+      <Shortcut>puvadonetdbcommand</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[ using (var reader = dbCommand.ExecuteReader())
+        {
+            dbCommand.CommandText = "exec [dbo].[SongsList] @UserId";
+            dbCommand.Parameters.Add(new SqlParameter("@UserId", userId));
+            $end$
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AdoNet. Get all songs.</Title>
+      <Shortcut>puvadonetgetallsongs</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[ using (IDbConnection conn = CreateProfiledConnection())
+            using (IDbCommand dbCommand = conn.CreateCommand())
+            {
+                dbCommand.CommandText = "exec [dbo].[SongsList] @UserId";
+                dbCommand.Parameters.Add(new SqlParameter("@UserId", userId));
+                conn.Open();
+                using (var reader = dbCommand.ExecuteReader())
+                {
+                    List<SongDto> songs = new List<SongDto>();
+                    while (reader.Read())
+                    {
+                        $end$
+                    }
+                    return songs;
+                }
+            }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AdoNet. Get all songs. Mappings</Title>
+      <Shortcut>puvadonetgetsongdto</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[private static SongDto BuildSongDto(IDataReader reader)
+        {
+            SongDto song = new SongDto();
+            song.Id = reader.GetInt32(0);
+            song.Title = reader.GetString(1);
+            song.Description = reader.GetString(2);
+            song.Author = reader.GetString(3);
+            song.CreatedAt = reader.GetDateTime(4);
+            song.Votes = reader.GetInt32(5);
+            song.Status = reader.GetString(6);
+            song.CommentsCount = reader.GetInt32(7);
+            song.CanVote = reader.GetBoolean(8);
+            return song;
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>EF. Get all songs.</Title>
+      <Shortcut>puvefgetallsongs</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[using (PianoUserVoiceEntities context = new PianoUserVoiceEntities())
+        {
+            return context.Database.SqlQuery<SongDto>("exec [dbo].[SongsList] @UserId",
+                new SqlParameter("@UserId", userId)
+                ).ToList();
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>

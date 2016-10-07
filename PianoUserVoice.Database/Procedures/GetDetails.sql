@@ -2,7 +2,7 @@
 @currentUserId NVARCHAR(128)
 AS
 BEGIN
-	SELECT TOP 100
+	SELECT
 		s.[Id]
 		,s.[Title]
 		,[Description]
